@@ -1,0 +1,15 @@
+<!--
+ Copyright (c) 2014, 2017, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+<div class="oj-hybrid-padding">
+  <h3>Dashboard Content Area</h3>
+  <div>
+    <bot-client id="bot-client"
+        channel="[[channel]]"
+        websocket-connection-url="[[websocketConnectionUrl]]"
+        user-id="[[userId]]">
+    </bot-client>
+  </div>
+  <button id="reset" data-bind="click: reset ,ojComponent: {component: 'ojButton', label: 'Reset'}"> </button>
+</div>

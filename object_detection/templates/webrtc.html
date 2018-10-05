@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Video</title>
+  </head>
+  <body>
+    <p>"{{ url_for('test') }}"</p>
+    <br><br>
+    <video src="" id="video" autoplay></video>
+  </body>
+  <script type="text/javascript">
+    var video = document.querySelector("#video");
+    navigator.getUserMedia({ video : true, audio : true }, function (stream) {
+      video.src = window.URL.createObjectURL(stream);
+    }, function (error) { console.log(error); });
+  </script>
+  
+</html>

@@ -1,0 +1,17 @@
+{
+ "properties": {
+   "channel" : {
+     "type": "string"
+   }
+  , "websocketConnectionUrl" : {
+     "type": "string"
+   }
+  , "userId" : {
+     "type": "string"
+   }
+ }  
+ ,"methods" :{
+     "reset" :{"description":"re-apply bot client settings (connection, userId, channel) and clear message history"
+                 }
+ }    
+}

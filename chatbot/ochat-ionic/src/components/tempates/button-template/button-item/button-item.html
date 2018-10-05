@@ -1,0 +1,3 @@
+<call-button *ngIf="model.type === callButtonModelType" [model]="model"></call-button>
+<post-back-button *ngIf="model.type === postBackButtonModelType" [model]="model" (onClick)="onClick.emit($event)"></post-back-button>
+<url-button *ngIf="model.type === urlButtonModelType" [model]="model"></url-button>

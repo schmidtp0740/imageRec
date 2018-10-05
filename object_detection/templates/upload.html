@@ -1,0 +1,21 @@
+<html>
+    <link rel="stylesheet" href="forms.css">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='forms.css') }}">
+    <body>
+    <!--
+        <form action = "https://{{host}}:8080/detect_upload" method = "POST" 
+          enctype = "multipart/form-data">
+          <input type = "file" name = "file" />
+          <input type = "submit"/>
+        </form>
+    -->
+        <form action="http://{{host}}:8080/detect_upload"
+              enctype="multipart/form-data" method="POST">
+            <p>Please specify an image file:<br><input type="file" name="file" size="40"></p>
+            <br>
+            <div>
+                <input type="submit">
+            </div>
+        </form>
+    </body>
+ </html>

@@ -1,0 +1,9 @@
+<wrapper [left]="!!model.recipient" [right]="!model.recipient">
+  <div class="chat-bubble" [ngClass]="{left: !!model.recipient, right: !model.recipient}">
+    <div class="message" [innerHTML]="model.text | linky"></div>
+    <ion-list>
+      <button-item *ngFor="let button of model.buttons" [model]="button" (onClick)="onClick.emit($event)"></button-item>
+    </ion-list>
+  </div>
+</wrapper>
+

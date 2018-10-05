@@ -1,0 +1,18 @@
+<wrapper class="lower-profile-pic" [left]="!!model.recipient" [right]="!model.recipient">
+  <ion-slides [options]="options" #mySlider>
+    <ion-slide *ngFor="let element of model.elements" (click)="onSlideClick(element)">
+      <ion-card>
+        <img *ngIf="element.imageUrl" [src]="element.imageUrl"/>
+        <ion-card-content>
+          <ion-card-title>{{element.title}}</ion-card-title>
+          <p>{{element.subtitle}}</p>
+        </ion-card-content>
+        <ion-list *ngIf="element.buttons && element.buttons.length > 0">
+          <button-item *ngFor="let button of element.buttons" [model]="button" (onClick)="onClick.emit($event)"></button-item>
+        </ion-list>
+        <div class="cf"></div>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+</wrapper>
+

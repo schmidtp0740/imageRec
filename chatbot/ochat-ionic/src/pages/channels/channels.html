@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Channels</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <button ion-item *ngFor="let channel of bots" (click)="itemTapped($event, channel)">
+      {{channel.name}}
+      <div class="item-note" item-right>
+        {{channel.description}}
+      </div>
+    </button>
+  </ion-list>
+</ion-content>

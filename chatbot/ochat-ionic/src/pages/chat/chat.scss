@@ -1,0 +1,64 @@
+page-chat {
+
+  /* allows the bar-footer to be elastic /*
+  /* optionally set a max-height */
+  /* maxlength on the textarea will prevent /*
+  /* it from getting too large also */
+  .bar-footer {
+    overflow: visible !important;
+  }
+
+  .bar-footer textarea {
+    resize: none;
+    height: 25px;
+  }
+
+  /* fixes an ios bug bear */
+  button.ion-android-send {
+    padding-top: 2px;
+  }
+
+  /* add this to keep your footer buttons down
+  at the bottom as the textarea resizes */
+  .footer-btn-wrap {
+    position: relative;
+    height: 100%;
+    width: 50px;
+    top: 7px;
+  }
+
+  .footer-btn {
+    position: absolute !important;
+    bottom: 0;
+  }
+
+
+  .bar.item-input-inset .item-input-wrapper input {
+    width: 100% !important;
+  }
+
+
+  input, textarea, .item-input, .item-input-wrapper {
+    background-color: #f4f4f4 !important;
+  }
+
+  .bold {
+    font-weight: bold;
+  }
+
+  .cf {
+    clear: both !important;
+  }
+
+  a.autolinker {
+    color: #3b88c3;
+    text-decoration: none;
+  }
+
+  .searchbar-search-icon{display: none;}
+  .searchbar-input{padding:6px !important;}
+  ion-searchbar .button-clear{display: none !important;}
+
+}
+
+

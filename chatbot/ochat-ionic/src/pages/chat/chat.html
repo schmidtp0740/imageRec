@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{selectedChannel.name}} - Chat</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content #content>
+  <div *ngFor="let item of items">
+    <button-template *ngIf="isTypeOf(item, modelTypes.ButtonTemplateModel)" [model]="item" (onClick)="onButtonTemplateClick($event)"></button-template>
+    <message-template *ngIf="isTypeOf(item, modelTypes.MessageTemplateModel)" [model]="item"></message-template>
+    <generic-template *ngIf="isTypeOf(item, modelTypes.GenericTemplateModel)" [model]="item"></generic-template>
+  </div>
+  <ion-label id="lastItem">&nbsp;</ion-label>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-searchbar
+      [(ngModel)]="message"
+      [showCancelButton]="false"
+      [placeholder]="'Message'"
+      (search)="sendMessage($event)">
+    </ion-searchbar>
+    <ion-buttons right>
+      <button ion-button icon-only
+              [disabled]="!message || message === ''"
+              (click)="sendMessage($event)">
+        <ion-icon name="send"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

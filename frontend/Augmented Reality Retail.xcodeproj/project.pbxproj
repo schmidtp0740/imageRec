@@ -1,0 +1,490 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6D6901EC1FDF8C670039693D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6901EB1FDF8C670039693D /* AppDelegate.swift */; };
+		6D6901EE1FDF8C670039693D /* Scene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6D6901ED1FDF8C670039693D /* Scene.sks */; };
+		6D6901F01FDF8C670039693D /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6901EF1FDF8C670039693D /* Scene.swift */; };
+		6D6901F21FDF8C670039693D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6901F11FDF8C670039693D /* ViewController.swift */; };
+		6D6901F51FDF8C670039693D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D6901F31FDF8C670039693D /* Main.storyboard */; };
+		6D6901F71FDF8C670039693D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D6901F61FDF8C670039693D /* Assets.xcassets */; };
+		6D6901FA1FDF8C670039693D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D6901F81FDF8C670039693D /* LaunchScreen.storyboard */; };
+		6D6902021FDF90980039693D /* ProductView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D6902011FDF90980039693D /* ProductView.xib */; };
+		6D6902041FDF9AE60039693D /* messenger.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D6902031FDF9AE50039693D /* messenger.png */; };
+		6D6902061FDFA6B30039693D /* iconi.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D6902051FDFA6B30039693D /* iconi.png */; };
+		6D6902071FE015D40039693D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D6902081FE015D40039693D /* Alamofire.framework */; };
+		6D69020A1FE020A40039693D /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6902091FE020A40039693D /* ProductViewController.swift */; };
+		6D69020C1FE022820039693D /* bb8ProductImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6D69020B1FE022820039693D /* bb8ProductImage.jpg */; };
+		6D69020E1FE02B430039693D /* bb8ProductImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D69020D1FE02B430039693D /* bb8ProductImage.png */; };
+		6D6902101FE02B8D0039693D /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D69020F1FE02B8D0039693D /* cancel.png */; };
+		6D6902121FE0334A0039693D /* QR.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D6902111FE0334A0039693D /* QR.png */; };
+		6DAD70CE20125EC5000F0D05 /* bose.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 6DAD70CD20125EC5000F0D05 /* bose.jpeg */; };
+		6DAD70D020167CEF000F0D05 /* expo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DAD70CF20167CEE000F0D05 /* expo.png */; };
+		6DB8180E1FFE8CFC005245DC /* Hooli.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DB8180D1FFE8CFC005245DC /* Hooli.png */; };
+		6DB818101FFE8E61005245DC /* white-slr-camera-256.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DB8180F1FFE8E60005245DC /* white-slr-camera-256.png */; };
+		6DB818121FFE8F23005245DC /* freeios7.com_apple_wallpaper_dark-impression_iphone4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6DB818111FFE8F23005245DC /* freeios7.com_apple_wallpaper_dark-impression_iphone4.jpg */; };
+		6DB818141FFE9098005245DC /* estore-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DB818131FFE9098005245DC /* estore-logo.png */; };
+		6DB818161FFE9190005245DC /* commissionbullseyelogo-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DB818151FFE918F005245DC /* commissionbullseyelogo-1.png */; };
+		6DB818181FFE92A4005245DC /* search-png-white-search-2-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DB818171FFE92A4005245DC /* search-png-white-search-2-512.png */; };
+		6DB8181A1FFEE6A3005245DC /* customSeg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB818191FFEE6A3005245DC /* customSeg.swift */; };
+		6DB8181C1FFEEA4D005245DC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB8181B1FFEEA4D005245DC /* HomeViewController.swift */; };
+		BACF9ADC1E204A68A6E6A48E /* Pods_Augmented_Reality_Retail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 221DDD564F9BCA6A884C4230 /* Pods_Augmented_Reality_Retail.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		221DDD564F9BCA6A884C4230 /* Pods_Augmented_Reality_Retail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Augmented_Reality_Retail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D6901E81FDF8C670039693D /* Augmented Reality Retail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Augmented Reality Retail.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D6901EB1FDF8C670039693D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6D6901ED1FDF8C670039693D /* Scene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Scene.sks; sourceTree = "<group>"; };
+		6D6901EF1FDF8C670039693D /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
+		6D6901F11FDF8C670039693D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6D6901F41FDF8C670039693D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6D6901F61FDF8C670039693D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6D6901F91FDF8C670039693D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6D6901FB1FDF8C670039693D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6D6902011FDF90980039693D /* ProductView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductView.xib; sourceTree = "<group>"; };
+		6D6902031FDF9AE50039693D /* messenger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = messenger.png; sourceTree = "<group>"; };
+		6D6902051FDFA6B30039693D /* iconi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconi.png; sourceTree = "<group>"; };
+		6D6902081FE015D40039693D /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D6902091FE020A40039693D /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		6D69020B1FE022820039693D /* bb8ProductImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bb8ProductImage.jpg; sourceTree = "<group>"; };
+		6D69020D1FE02B430039693D /* bb8ProductImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bb8ProductImage.png; sourceTree = "<group>"; };
+		6D69020F1FE02B8D0039693D /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel.png; sourceTree = "<group>"; };
+		6D6902111FE0334A0039693D /* QR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = QR.png; sourceTree = "<group>"; };
+		6DAD70CD20125EC5000F0D05 /* bose.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bose.jpeg; sourceTree = "<group>"; };
+		6DAD70CF20167CEE000F0D05 /* expo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = expo.png; sourceTree = "<group>"; };
+		6DB8180D1FFE8CFC005245DC /* Hooli.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Hooli.png; sourceTree = "<group>"; };
+		6DB8180F1FFE8E60005245DC /* white-slr-camera-256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white-slr-camera-256.png"; sourceTree = "<group>"; };
+		6DB818111FFE8F23005245DC /* freeios7.com_apple_wallpaper_dark-impression_iphone4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "freeios7.com_apple_wallpaper_dark-impression_iphone4.jpg"; sourceTree = "<group>"; };
+		6DB818131FFE9098005245DC /* estore-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "estore-logo.png"; sourceTree = "<group>"; };
+		6DB818151FFE918F005245DC /* commissionbullseyelogo-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "commissionbullseyelogo-1.png"; sourceTree = "<group>"; };
+		6DB818171FFE92A4005245DC /* search-png-white-search-2-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-png-white-search-2-512.png"; sourceTree = "<group>"; };
+		6DB818191FFEE6A3005245DC /* customSeg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customSeg.swift; sourceTree = "<group>"; };
+		6DB8181B1FFEEA4D005245DC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		6EBD3FF7DA75635A2297A071 /* Pods-Augmented Reality Retail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Augmented Reality Retail.release.xcconfig"; path = "Pods/Target Support Files/Pods-Augmented Reality Retail/Pods-Augmented Reality Retail.release.xcconfig"; sourceTree = "<group>"; };
+		CF685B57913E5ACC9CE794E2 /* Pods-Augmented Reality Retail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Augmented Reality Retail.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Augmented Reality Retail/Pods-Augmented Reality Retail.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6D6901E51FDF8C670039693D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D6902071FE015D40039693D /* Alamofire.framework in Frameworks */,
+				BACF9ADC1E204A68A6E6A48E /* Pods_Augmented_Reality_Retail.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		09556F11B10FB115A499461D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CF685B57913E5ACC9CE794E2 /* Pods-Augmented Reality Retail.debug.xcconfig */,
+				6EBD3FF7DA75635A2297A071 /* Pods-Augmented Reality Retail.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6D6901DF1FDF8C670039693D = {
+			isa = PBXGroup;
+			children = (
+				6D6901EA1FDF8C670039693D /* Augmented Reality Retail */,
+				6D6901E91FDF8C670039693D /* Products */,
+				09556F11B10FB115A499461D /* Pods */,
+				734687C41338AC896F8B8215 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		6D6901E91FDF8C670039693D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6D6901E81FDF8C670039693D /* Augmented Reality Retail.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6D6901EA1FDF8C670039693D /* Augmented Reality Retail */ = {
+			isa = PBXGroup;
+			children = (
+				6DB8180F1FFE8E60005245DC /* white-slr-camera-256.png */,
+				6D6902111FE0334A0039693D /* QR.png */,
+				6D69020F1FE02B8D0039693D /* cancel.png */,
+				6D69020B1FE022820039693D /* bb8ProductImage.jpg */,
+				6DAD70CF20167CEE000F0D05 /* expo.png */,
+				6D69020D1FE02B430039693D /* bb8ProductImage.png */,
+				6DAD70CD20125EC5000F0D05 /* bose.jpeg */,
+				6DB818151FFE918F005245DC /* commissionbullseyelogo-1.png */,
+				6D6902031FDF9AE50039693D /* messenger.png */,
+				6D6902051FDFA6B30039693D /* iconi.png */,
+				6D6901EB1FDF8C670039693D /* AppDelegate.swift */,
+				6DB818131FFE9098005245DC /* estore-logo.png */,
+				6D6901ED1FDF8C670039693D /* Scene.sks */,
+				6DB818111FFE8F23005245DC /* freeios7.com_apple_wallpaper_dark-impression_iphone4.jpg */,
+				6DB818171FFE92A4005245DC /* search-png-white-search-2-512.png */,
+				6DB8180D1FFE8CFC005245DC /* Hooli.png */,
+				6D6901F31FDF8C670039693D /* Main.storyboard */,
+				6D6901F61FDF8C670039693D /* Assets.xcassets */,
+				6D6901F81FDF8C670039693D /* LaunchScreen.storyboard */,
+				6D6901FB1FDF8C670039693D /* Info.plist */,
+				6D6901EF1FDF8C670039693D /* Scene.swift */,
+				6D6901F11FDF8C670039693D /* ViewController.swift */,
+				6D6902011FDF90980039693D /* ProductView.xib */,
+				6D6902091FE020A40039693D /* ProductViewController.swift */,
+				6DB818191FFEE6A3005245DC /* customSeg.swift */,
+				6DB8181B1FFEEA4D005245DC /* HomeViewController.swift */,
+			);
+			path = "Augmented Reality Retail";
+			sourceTree = "<group>";
+		};
+		734687C41338AC896F8B8215 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6D6902081FE015D40039693D /* Alamofire.framework */,
+				221DDD564F9BCA6A884C4230 /* Pods_Augmented_Reality_Retail.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6D6901E71FDF8C670039693D /* Augmented Reality Retail */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6D6901FE1FDF8C670039693D /* Build configuration list for PBXNativeTarget "Augmented Reality Retail" */;
+			buildPhases = (
+				24939314100A3C6FE653E895 /* [CP] Check Pods Manifest.lock */,
+				6D6901E41FDF8C670039693D /* Sources */,
+				6D6901E51FDF8C670039693D /* Frameworks */,
+				6D6901E61FDF8C670039693D /* Resources */,
+				A0EA914949974846E8BB6BC1 /* [CP] Embed Pods Frameworks */,
+				2905ADE201802D574D5E9B6A /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Augmented Reality Retail";
+			productName = "Augmented Reality Retail";
+			productReference = 6D6901E81FDF8C670039693D /* Augmented Reality Retail.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6D6901E01FDF8C670039693D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = AwesomeDev;
+				TargetAttributes = {
+					6D6901E71FDF8C670039693D = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 6D6901E31FDF8C670039693D /* Build configuration list for PBXProject "Augmented Reality Retail" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6D6901DF1FDF8C670039693D;
+			productRefGroup = 6D6901E91FDF8C670039693D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6D6901E71FDF8C670039693D /* Augmented Reality Retail */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6D6901E61FDF8C670039693D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6DB818141FFE9098005245DC /* estore-logo.png in Resources */,
+				6D69020E1FE02B430039693D /* bb8ProductImage.png in Resources */,
+				6D6902121FE0334A0039693D /* QR.png in Resources */,
+				6DB818101FFE8E61005245DC /* white-slr-camera-256.png in Resources */,
+				6DB818161FFE9190005245DC /* commissionbullseyelogo-1.png in Resources */,
+				6DB818121FFE8F23005245DC /* freeios7.com_apple_wallpaper_dark-impression_iphone4.jpg in Resources */,
+				6D6901EE1FDF8C670039693D /* Scene.sks in Resources */,
+				6D6902061FDFA6B30039693D /* iconi.png in Resources */,
+				6DB818181FFE92A4005245DC /* search-png-white-search-2-512.png in Resources */,
+				6D6902101FE02B8D0039693D /* cancel.png in Resources */,
+				6D69020C1FE022820039693D /* bb8ProductImage.jpg in Resources */,
+				6D6901FA1FDF8C670039693D /* LaunchScreen.storyboard in Resources */,
+				6DAD70D020167CEF000F0D05 /* expo.png in Resources */,
+				6DAD70CE20125EC5000F0D05 /* bose.jpeg in Resources */,
+				6D6901F71FDF8C670039693D /* Assets.xcassets in Resources */,
+				6D6902041FDF9AE60039693D /* messenger.png in Resources */,
+				6D6902021FDF90980039693D /* ProductView.xib in Resources */,
+				6D6901F51FDF8C670039693D /* Main.storyboard in Resources */,
+				6DB8180E1FFE8CFC005245DC /* Hooli.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		24939314100A3C6FE653E895 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2905ADE201802D574D5E9B6A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Augmented Reality Retail/Pods-Augmented Reality Retail-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0EA914949974846E8BB6BC1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Augmented Reality Retail/Pods-Augmented Reality Retail-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6D6901E41FDF8C670039693D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D6901F21FDF8C670039693D /* ViewController.swift in Sources */,
+				6D6901F01FDF8C670039693D /* Scene.swift in Sources */,
+				6D69020A1FE020A40039693D /* ProductViewController.swift in Sources */,
+				6DB8181A1FFEE6A3005245DC /* customSeg.swift in Sources */,
+				6D6901EC1FDF8C670039693D /* AppDelegate.swift in Sources */,
+				6DB8181C1FFEEA4D005245DC /* HomeViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6D6901F31FDF8C670039693D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6D6901F41FDF8C670039693D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6D6901F81FDF8C670039693D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6D6901F91FDF8C670039693D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6D6901FC1FDF8C670039693D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6D6901FD1FDF8C670039693D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6D6901FF1FDF8C670039693D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF685B57913E5ACC9CE794E2 /* Pods-Augmented Reality Retail.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BLMT83F64F;
+				INFOPLIST_FILE = "Augmented Reality Retail/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Awesome.Augmented-Reality-Retail";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6D6902001FDF8C670039693D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EBD3FF7DA75635A2297A071 /* Pods-Augmented Reality Retail.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BLMT83F64F;
+				INFOPLIST_FILE = "Augmented Reality Retail/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Awesome.Augmented-Reality-Retail";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6D6901E31FDF8C670039693D /* Build configuration list for PBXProject "Augmented Reality Retail" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D6901FC1FDF8C670039693D /* Debug */,
+				6D6901FD1FDF8C670039693D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6D6901FE1FDF8C670039693D /* Build configuration list for PBXNativeTarget "Augmented Reality Retail" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D6901FF1FDF8C670039693D /* Debug */,
+				6D6902001FDF8C670039693D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6D6901E01FDF8C670039693D /* Project object */;
+}

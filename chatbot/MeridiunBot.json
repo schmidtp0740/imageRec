@@ -1,0 +1,439 @@
+{
+  "name" : "MeridiunBot",
+  "description" : "Meridiun bot for the B2C requirement.",
+  "type" : "USER",
+  "intents" : [ {
+    "name" : "Greeting",
+    "paramsList" : [ ],
+    "type" : "NLPIntent"
+  }, {
+    "name" : "PaperTowels",
+    "paramsList" : [ ],
+    "type" : "NLPIntent"
+  }, {
+    "name" : "FindProduct",
+    "paramsList" : [ {
+      "entity" : {
+        "name" : "ProductType",
+        "type" : "ENUMVALUES",
+        "enumValues" : "Household cleaning products{household cleaning products:cleaning products},Other cleaning products{other cleaning products}",
+        "ruleParameters" : null,
+        "parentEntity" : null,
+        "patternExpression" : null
+      },
+      "name" : "CleaningProducts",
+      "isRequired" : true,
+      "required" : true
+    }, {
+      "entity" : {
+        "name" : "OtherCleaningProducts",
+        "type" : "ENUMVALUES",
+        "enumValues" : "Laundry detergent{Laundry detergent:laundry detergent:Laundry Detergent},Soap{soap:Soap}",
+        "ruleParameters" : null,
+        "parentEntity" : null,
+        "patternExpression" : null
+      },
+      "name" : "OtherCleaningProducts",
+      "isRequired" : true,
+      "required" : true
+    }, {
+      "entity" : {
+        "name" : "HouseholdCleaningProducts",
+        "type" : "ENUMVALUES",
+        "enumValues" : "Paper Towels{paper Towels:paper towels:towels:Towels},Tissues Paper{tissues:tissues paper:tissues Paper},Toilet Paper{toilet paper:Toilet paper}",
+        "ruleParameters" : null,
+        "parentEntity" : null,
+        "patternExpression" : null
+      },
+      "name" : "HouseholdCleaningProducts",
+      "isRequired" : true,
+      "required" : true
+    } ],
+    "type" : "NLPIntent"
+  }, {
+    "name" : "Laundrydetergent",
+    "paramsList" : [ ],
+    "type" : "NLPIntent"
+  } ],
+  "entities" : [ {
+    "name" : "HouseholdCleaningProducts",
+    "type" : "ENUMVALUES",
+    "enumValues" : "Paper Towels{paper Towels:paper towels:towels:Towels},Tissues Paper{tissues:tissues paper:tissues Paper},Toilet Paper{toilet paper:Toilet paper}",
+    "ruleParameters" : null,
+    "parentEntity" : null,
+    "patternExpression" : null
+  }, {
+    "name" : "OtherCleaningProducts",
+    "type" : "ENUMVALUES",
+    "enumValues" : "Laundry detergent{Laundry detergent:laundry detergent:Laundry Detergent},Soap{soap:Soap}",
+    "ruleParameters" : null,
+    "parentEntity" : null,
+    "patternExpression" : null
+  }, {
+    "name" : "ProductType",
+    "type" : "ENUMVALUES",
+    "enumValues" : "Household cleaning products{household cleaning products:cleaning products},Other cleaning products{other cleaning products}",
+    "ruleParameters" : null,
+    "parentEntity" : null,
+    "patternExpression" : null
+  } ],
+  "dialog" : [ {
+    "metadata" : {
+      "platformVersion" : "1.0"
+    },
+    "main" : true,
+    "name" : "MeridiunBot",
+    "context" : {
+      "variables" : {
+        "iResult" : "nlpresult",
+        "userInput" : "nlpresult",
+        "productType" : "ProductType",
+        "otherCleaningProducts" : "OtherCleaningProducts",
+        "householdCleaningProducts" : "HouseholdCleaningProducts"
+      }
+    },
+    "states" : {
+      "intent" : {
+        "component" : "System.Intent",
+        "properties" : {
+          "variable" : "iResult",
+          "confidenceThreshold" : 0.4
+        },
+        "transitions" : {
+          "actions" : {
+            "Greeting" : "greeting",
+            "PaperTowels" : "paperTowels",
+            "LaundryDetergent" : "laundryDetergent",
+            "FindProduct" : "startFindProducts",
+            "unresolvedIntent" : "unresolved"
+          }
+        }
+      },
+      "greeting" : {
+        "component" : "System.Text",
+        "properties" : {
+          "prompt" : "Hello Robert and welcome! How can I be of assistance?",
+          "variable" : "userInput"
+        },
+        "transitions" : {
+          "actions" : {
+            "PaperTowels" : "paperTowels",
+            "LaundryDetergent" : "laundryDetergent",
+            "FindProducts" : "startFindProducts",
+            "HouseholdcleaningProducts" : "householdCleaningProducts",
+            "OtherCleaningProducts" : "otherCleaningProducts",
+            "unresolvedIntent" : "unresolved"
+          }
+        }
+      },
+      "startFindProducts" : {
+        "component" : "System.SetVariable",
+        "properties" : {
+          "variable" : "productType",
+          "value" : "${iResult.value.entityMatches['ProductType'][0]}"
+        },
+        "transitions" : {
+          "actions" : {
+            "AskProductType" : "askProductType",
+            "unresolvedIntent" : "unresolved"
+          }
+        }
+      },
+      "askProductType" : {
+        "component" : "System.List",
+        "properties" : {
+          "options" : "${productType.type.enumValues}",
+          "prompt" : "What kind of cleaning products are you looking for?",
+          "variable" : "productType"
+        },
+        "transitions" : { }
+      },
+      "switch" : {
+        "component" : "System.Switch",
+        "properties" : {
+          "variable" : "productType",
+          "values" : [ "Household cleaning products", "Other cleaning products" ]
+        },
+        "transitions" : {
+          "actions" : {
+            "PaperTowels" : "paperTowels",
+            "LaundryDetergent" : "laundryDetergent",
+            "Household cleaning products" : "householdCleaningProducts",
+            "Other cleaning products" : "otherCleaningProducts"
+          }
+        }
+      },
+      "householdCleaningProducts" : {
+        "component" : "System.List",
+        "properties" : {
+          "options" : "${householdCleaningProducts.type.enumValues}",
+          "prompt" : "Which household cleaning product are you looking for?",
+          "variable" : "householdCleaningProducts"
+        },
+        "transitions" : { }
+      },
+      "householdSwitch" : {
+        "component" : "System.Switch",
+        "properties" : {
+          "variable" : "householdCleaningProducts",
+          "values" : [ "Paper Towels", "Tissues Paper", "Toilet Paper" ]
+        },
+        "transitions" : {
+          "actions" : {
+            "Paper Towels" : "paperTowels",
+            "Tissues Paper" : "tissuesPaper",
+            "Toilet Paper" : "toiletPaper"
+          }
+        }
+      },
+      "paperTowels" : {
+        "component" : "System.Output",
+        "properties" : {
+          "text" : "Paper towels can be found halfway down aisle 5 on the right"
+        },
+        "transitions" : {
+          "return" : "paperTowels"
+        }
+      },
+      "tissuesPaper" : {
+        "component" : "System.Output",
+        "properties" : {
+          "text" : "Tissues Paper can be found halfway down aisle 5 on the right"
+        },
+        "transitions" : {
+          "return" : "tissuesPaper"
+        }
+      },
+      "toiletPaper" : {
+        "component" : "System.Output",
+        "properties" : {
+          "text" : "Toilet Paper can be found halfway down aisle 5 on the right"
+        },
+        "transitions" : {
+          "return" : "toiletPaper"
+        }
+      },
+      "otherCleaningProducts" : {
+        "component" : "System.List",
+        "properties" : {
+          "options" : "${otherCleaningProducts.type.enumValues}",
+          "prompt" : "Which other cleaning product are you looking for?",
+          "variable" : "otherCleaningProducts"
+        },
+        "transitions" : { }
+      },
+      "otherProductsSwitch" : {
+        "component" : "System.Switch",
+        "properties" : {
+          "variable" : "otherCleaningProducts",
+          "values" : [ "Laundry Detergent", "Soap" ]
+        },
+        "transitions" : {
+          "actions" : {
+            "Laundry Detergent" : "laundryDetergent",
+            "Soap" : "soap"
+          }
+        }
+      },
+      "laundryDetergent" : {
+        "component" : "System.Output",
+        "properties" : {
+          "text" : "Laundry detergent can be found towards the front of aisle 7 on the left"
+        },
+        "transitions" : {
+          "return" : "laundryDetergent"
+        }
+      },
+      "soap" : {
+        "component" : "System.Output",
+        "properties" : {
+          "text" : "Soap can be found towards the front of aisle 7 on the left"
+        },
+        "transitions" : {
+          "return" : "soap"
+        }
+      },
+      "unresolved" : {
+        "component" : "System.Output",
+        "properties" : {
+          "text" : "Unable to resolve intent!"
+        },
+        "transitions" : { }
+      }
+    }
+  } ],
+  "componentServices" : [ {
+    "name" : "MeridiunMCSServices",
+    "description" : "MCS services for the Meridiun Bot",
+    "url" : "https://mcs-gse00011683.mobileenv.us2.oraclecloud.com:443/mobile/custom/MeridiunBotCC/components",
+    "version" : "1.0",
+    "headers" : [ ],
+    "credentials" : {
+      "type" : "mcs",
+      "mobileBackendId" : "962da534-a07b-41a4-9610-525dff703d2f",
+      "anonymous" : true,
+      "username" : null,
+      "anonymousKeyKey" : null,
+      "passwordKey" : null
+    }
+  } ],
+  "trainingDataList" : [ {
+    "sentence" : "Hi there",
+    "intent" : "Greeting",
+    "namedEntities" : [ ]
+  }, {
+    "sentence" : "hi there",
+    "intent" : "Greeting",
+    "namedEntities" : [ ]
+  }, {
+    "sentence" : "Hi",
+    "intent" : "Greeting",
+    "namedEntities" : [ ]
+  }, {
+    "sentence" : "hi",
+    "intent" : "Greeting",
+    "namedEntities" : [ ]
+  }, {
+    "sentence" : "hello",
+    "intent" : "Greeting",
+    "namedEntities" : [ ]
+  }, {
+    "sentence" : "Hello",
+    "intent" : "Greeting",
+    "namedEntities" : [ ]
+  }, {
+    "sentence" : "hello there",
+    "intent" : "Greeting",
+    "namedEntities" : [ ]
+  }, {
+    "sentence" : "hey",
+    "intent" : "Greeting",
+    "namedEntities" : [ ]
+  }, {
+    "sentence" : "hey there",
+    "intent" : "Greeting",
+    "namedEntities" : [ ]
+  }, {
+    "sentence" : "Hey",
+    "intent" : "Greeting",
+    "namedEntities" : [ ]
+  }, {
+    "sentence" : "Greetings",
+    "intent" : "Greeting",
+    "namedEntities" : [ ]
+  }, {
+    "sentence" : "greetings",
+    "intent" : "Greeting",
+    "namedEntities" : [ ]
+  }, {
+    "sentence" : "Paper Towels",
+    "intent" : "PaperTowels",
+    "namedEntities" : [ ]
+  }, {
+    "sentence" : "paper towels",
+    "intent" : "PaperTowels",
+    "namedEntities" : [ ]
+  }, {
+    "sentence" : "Where can I find Paper towels?",
+    "intent" : "PaperTowels",
+    "namedEntities" : [ ]
+  }, {
+    "sentence" : "Where can I find Paper towels",
+    "intent" : "PaperTowels",
+    "namedEntities" : [ ]
+  }, {
+    "sentence" : "find Paper towels?",
+    "intent" : "PaperTowels",
+    "namedEntities" : [ ]
+  }, {
+    "sentence" : "Where can I find Paper Towels?",
+    "intent" : "PaperTowels",
+    "namedEntities" : [ ]
+  }, {
+    "sentence" : "Where can I find Paper Towels?",
+    "intent" : "PaperTowels",
+    "namedEntities" : [ ]
+  }, {
+    "sentence" : "Where can I find cleaning materials?",
+    "intent" : "FindProduct",
+    "namedEntities" : [ ]
+  }, {
+    "sentence" : "Where can I find Cleaning materials?",
+    "intent" : "FindProduct",
+    "namedEntities" : [ ]
+  }, {
+    "sentence" : "Can you help me find a product?",
+    "intent" : "FindProduct",
+    "namedEntities" : [ ]
+  }, {
+    "sentence" : "Find Products",
+    "intent" : "FindProduct",
+    "namedEntities" : [ ]
+  }, {
+    "sentence" : "find Products",
+    "intent" : "FindProduct",
+    "namedEntities" : [ ]
+  }, {
+    "sentence" : "Where can I find cleaning products?",
+    "intent" : "FindProduct",
+    "namedEntities" : [ ]
+  }, {
+    "sentence" : "Where can I find products?",
+    "intent" : "FindProduct",
+    "namedEntities" : [ ]
+  }, {
+    "sentence" : "Where is the laundry detergent?",
+    "intent" : "Laundrydetergent",
+    "namedEntities" : [ ]
+  }, {
+    "sentence" : "Where can I find laundry detergent?",
+    "intent" : "Laundrydetergent",
+    "namedEntities" : [ ]
+  }, {
+    "sentence" : "laundry detergent?",
+    "intent" : "Laundrydetergent",
+    "namedEntities" : [ ]
+  }, {
+    "sentence" : "laundry detergent",
+    "intent" : "Laundrydetergent",
+    "namedEntities" : [ ]
+  }, {
+    "sentence" : "Where can I find Laundry detergent?",
+    "intent" : "Laundrydetergent",
+    "namedEntities" : [ ]
+  } ],
+  "channels" : [ {
+    "name" : "meridiun_webhook",
+    "description" : "Webhook for Meridiun client",
+    "enabled" : true,
+    "config" : {
+      "type" : "webhook",
+      "webhookUri" : "https://8a65227e.ngrok.io/apps/chat/bots/7CB756BB-C288-40A4-846D-870D501F62D3/messages"
+    }
+  }, {
+    "name" : "System_Bot_Test",
+    "description" : "Used by the BOT test feature. If it is disabled, the test UI will not work for this BOT.",
+    "enabled" : true,
+    "config" : {
+      "type" : "test"
+    }
+  }, {
+    "name" : "MeridiunFBChannel",
+    "description" : "Facebook channel for the Meridiun Bot",
+    "enabled" : true,
+    "config" : {
+      "type" : "facebook"
+    }
+  } ],
+  "settings" : {
+    "createdOn" : "2017-12-20T10:40:47.229Z",
+    "updatedOn" : "2017-12-20T10:40:47.229Z",
+    "links" : null,
+    "settings" : {
+      "Multistage_Pipeline" : true,
+      "Verbose_Output" : false,
+      "Result_Size" : 10,
+      "Pipeline_Output_Size" : 100
+    }
+  }
+}

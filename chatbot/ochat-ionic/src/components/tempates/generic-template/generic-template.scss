@@ -1,0 +1,15 @@
+generic-template{
+
+
+  .list-md{margin: 0 0 -1px 0;}
+  .list-md .item-block .item-inner{border-bottom: 0;}
+  .item{border-bottom: 1px solid #dedede;}
+  button-item:last-child .item {border-radius: 0 0 5px 5px;}
+
+
+  wrapper.lower-profile-pic .profile-pic{bottom:-23px;}
+  wrapper .message-wrapper:last-child{margin-bottom: 28px;}
+
+  .swiper-wrapper{margin-bottom: 8px;}
+  .swiper-pagination{margin-bottom: -20px;}
+}

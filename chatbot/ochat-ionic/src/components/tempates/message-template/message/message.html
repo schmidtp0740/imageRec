@@ -1,0 +1,4 @@
+<ion-icon class="profile-pic" [ngClass]="{left: isReceived, right: !isReceived}" [name]="icon"></ion-icon>
+<div class="chat-bubble" [ngClass]="{left: isReceived, right: !isReceived}">
+  <div class="message" [innerHTML]="text | linky"></div>
+</div>

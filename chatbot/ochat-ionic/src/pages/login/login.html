@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Bots Login</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content #content>
+  <ion-list>
+    <ion-item>
+      <ion-label>Select User</ion-label>
+      <ion-select [(ngModel)]="username">
+        <ion-option *ngFor="let user of dataService.users" value="{{user.name}}">{{user.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <!--<ion-item>-->
+      <!--<ion-label floating>Username</ion-label>-->
+      <!--<ion-input type="text" [(ngModel)]="username" disabled></ion-input>-->
+    <!--</ion-item>-->
+    <!--<ion-item>-->
+      <!--<ion-label floating disabled>Password</ion-label>-->
+      <!--<ion-input type="password" [(ngModel)]="password" disabled></ion-input>-->
+    <!--</ion-item>-->
+  </ion-list>
+  <div padding>
+    <button ion-button block (click)="login()" [disabled]="!username">Sign In</button>
+  </div>
+</ion-content>
+

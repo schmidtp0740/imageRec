@@ -1,0 +1,1 @@
+python eval.py --logtostderr --checkpoint_dir=models/model/train/ --eval_dir=models/model/eval/ --pipeline_config_path=models/model/ssd_mobilenet_v1_coco.config

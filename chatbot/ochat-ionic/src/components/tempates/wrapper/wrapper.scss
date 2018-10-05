@@ -1,0 +1,47 @@
+wrapper{
+
+  .message-wrapper {
+    position: relative;
+  }
+
+  .message-wrapper:last-child {
+    margin-bottom: 10px;
+  }
+
+  ion-icon.profile-pic {
+    font-size: 43px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 10px;
+  }
+
+  ion-icon.profile-pic.left {
+    color: #e6e5eb;
+    left: 10px;
+  }
+
+  ion-icon.profile-pic.right {
+    color: #158ffe;
+    right: 10px;
+  }
+
+
+  img.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 10px;
+  }
+
+  img.profile-pic.left {
+    left: 10px;
+  }
+
+  img.profile-pic.right {
+    right: 10px;
+  }
+
+}

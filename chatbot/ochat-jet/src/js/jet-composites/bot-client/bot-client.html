@@ -1,0 +1,294 @@
+<!--
+ Copyright (c) 2016-2017, Oracle and/or its affiliates. All rights reserved.
+-->
+<div id="page" class="oj-hybrid-applayout-page">
+  <!-- Content: all other templates will be called from here! -->
+
+  <div id="content" class="oj-panel oj-margin "  >
+    <div class="message-container">
+      <div id="listview" data-bind="if: allItems">
+        <div data-bind="template: { name: 'chat_template', foreach: allItems, as: 'item' }"></div>
+      </div>
+      <div id="nomsg" data-bind="visible: allItems().length===0 && !waitingForText()">No messages to display</div>
+      <img src="js/jet-composites/bot-client/images/waitingForText.gif"
+           class="waitingForText"
+           data-bind="visible:waitingForText"/>
+    </div>
+  </div>
+  <!-- FOOTER -->
+  <div class="oj-applayout-fixed-bottom">
+    <div class="oj-flex oj-flex-items-pad" style="width:420px;">
+      <div class="oj-flex-item">
+        <input id="text-input"
+               type="text"
+               data-bind="ojComponent: {
+                                  component: 'ojInputText',
+                                  value: value,
+                                  placeholder: 'Type a message',
+                                  optionChange: valueChangeHandler,
+                                  rootAttributes: {
+                                            style:'max-width:100%'
+                                    }
+                                  }"/>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Main message template -->
+<script type="text/html" id="chat_template">
+  <!-- process bot message -->
+  <div class="oj-flex-items-pad message-content-container" data-bind="if: bot">
+    <div data-bind="if: payload.type == 'text'">
+      <div data-bind="template: { name: 'text-template-bot', data: payload }"></div>
+    </div>
+    <div data-bind="if: payload.type == 'attachment'">
+      <div data-bind="template: { name: 'attachment', data: payload }"></div>
+    </div>
+    <div data-bind="if: payload.type == 'card' && payload.layout == 'vertical'">
+      <div data-bind="template: { name: 'cards-vertical', data: payload }"></div>
+    </div>
+    <div data-bind="if: payload.type == 'card' && payload.layout == 'horizontal'">
+      <div data-bind="template: { name: 'cards-horizontal', data: payload }"></div>
+    </div>
+    <div data-bind="if: payload.hasOwnProperty('globalActions')">
+      <!-- global actions button -->
+      <div class="oj-flex oj-sm-justify-content-center" style="margin-top:30px;" >
+        <!-- ko foreach: payload.globalActions -->
+        <div class="flex-item " >
+          <div data-bind="template: { name: 'action-template'
+                        , data: {clazz:'global-action-link',action:$data
+                                 ,parent:$parents[1]} }"></div>
+        </div>
+        <!-- /ko -->
+      </div>
+    </div>
+    <div data-bind="if: payload.errorCode">
+      <div data-bind="template: { name: 'errorMessage-template', data: payload }"></div>
+    </div>
+  </div>
+  <!-- process user message -->
+  <div class="oj-flex-items-pad" style="margin: 5px" data-bind="if: !bot">
+    <div class="oj-flex">
+      <div class="oj-flex-item">
+        <div data-bind="template: { name: 'text-template-user', data: item }"></div>
+      </div>
+    </div>
+  </div>
+</script>
+
+
+<!-- USER Text Template -->
+<script type="text/html" id="text-template-user">
+  <div class="oj-flex oj-sm-justify-content-flex-end oj-sm-flex-items-initial bubble-right-container ">
+    <div class="oj-flex-item">
+      <span class="bubble-right"><span data-bind="text: item.payload"></span></span>
+    </div>
+  </div>
+</script>
+
+<!-- BOT Text Template -->
+<script type="text/html" id="text-template-bot">
+  <div data-bind="if: text" class="oj-flex " >
+    <div class="oj-flex">
+      <div class="oj-flex-item bubble-left" data-bind="css:$data.actions ? 'bubble-left-with-actions' : ''" >
+        <span data-bind="text: text"></span>
+      </div>
+    </div>
+
+    <div data-bind="if: $data.actions">
+      <div class="actions">
+        <div data-bind="foreach: $data.actions">
+          <div class="oj-flex oj-sm-justify-content-center" data-bind="css:($index() === ($parent.actions.length - 1)) ? 'action-last' : 'action'" >
+            <div class="flex-item " >
+              <div data-bind="template: { name: 'action-template'
+    , data: {clazz:'action-link', action: $data
+      , parent:$parents[2]} }"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+
+<!-- ERROR message template -->
+<script type="text/html" id="errorMessage-template">
+  <div class="oj-flex bubble-right" style="margin: 5px">
+    <div class="oj-lg-10 oj-md-10 oj-sm-12">
+      <div class="oj-flex row">
+        <div class="oj-lg-12 oj-md-12 oj-sm-12">
+          <span data-bind="text: errorMessage"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+
+<!-- Vertical CARDs template -->
+<script type="text/html" id="cards-vertical">
+  <div id="cardsListView"
+       aria-label="Vertical Cards"
+       data-bind="ojComponent: {component: 'ojListView', selectionMode: 'none'
+                 , rootAttributes:{class:'card'}}">
+
+    <!-- ko foreach: cards -->
+    <li data-bind="attr: { id: 'prefix_' + $index() }">
+      <div class="oj-flex ">
+        <div class="oj-flex-item" style="max-width:245px;">
+
+          <div class="oj-flex">
+            <div class="oj-flex-item" data-bind="if: $data.hasOwnProperty('title')">
+              <span class="card-title" data-bind="text: title" class="name"></span>
+            </div>
+          </div>
+          <div class="oj-flex">
+            <div class="oj-flex-item" data-bind="if: $data.hasOwnProperty('description')">
+              <span class="card-sub-title" data-bind="text: description" ></span>
+            </div>
+          </div>
+          <div class="oj-flex">
+            <div class="oj-flex-item" data-bind="if: $data.hasOwnProperty('url')">
+              <a data-bind="css:'card-url',text: $parents[2].getDisplayUrl($data.url), attr: {href: $data.url}"  target="_blank" ></a>
+            </div>
+          </div>
+          <div class="oj-flex">
+            <div class="oj-flex-item" style="margin-top:10px;" >
+              <!-- ko if: $data && $data.hasOwnProperty("actions") -->
+              <!-- ko foreach: actions -->
+              <div data-bind="template: { name: 'action-template'
+                    , data: {clazz:'vert-card-link',action:$data
+                             ,parent:$parents[3]} }"></div>
+              <!-- /ko -->
+              <!-- /ko -->
+            </div>
+          </div>
+
+
+        </div>
+
+        <!-- ko if: $data.hasOwnProperty("imageUrl") -->
+        <div class="oj-flex-item oj-sm-flex-initial " >
+          <img class="vert-card-image" data-bind="attr: {src: imageUrl}"/>
+        </div>
+        <!-- /ko -->
+
+      </div>
+    </li>
+    <!-- /ko -->
+  </div>
+  <!-- process actions at card list level, if any -->
+  <div data-bind="if: $data.actions">
+    <div class="actions">
+      <div data-bind="foreach: $data.actions">
+        <div class="oj-flex oj-sm-justify-content-center" data-bind="css:($index() === ($parent.actions.length - 1)) ? 'action-last' : 'action'" >
+          <div class="flex-item " >
+            <div data-bind="template: { name: 'action-template'
+                        , data: {clazz:'action-link',action:$data
+                          ,parent:$parents[2]} }">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+
+
+<!-- Horizontal CARDs template -->
+<script type="text/html" id="cards-horizontal">
+  <div id="filmStripDiv"
+       aria-label="Horizontal Cards"
+       class="demo-stretch-items"
+       data-bind="ojComponent: {
+                           component: 'ojFilmStrip',
+                           maxItemsPerPage: 1}">
+    <!-- ko foreach: cards -->
+    <div class="card-filmstrip-item">
+      <div class="oj-flex-items-pad">
+        <div class="oj-flex">
+          <div class="oj-flex-item " data-bind="if: $data.hasOwnProperty('imageUrl')">
+            <img style="max-width:100%;height:auto;" data-bind="attr: {src: imageUrl}"/>
+          </div>
+        </div>
+        <div class="oj-flex ">
+          <div class="oj-flex-item oj-sm-flex-initial" data-bind="if: $data.hasOwnProperty('title')">
+            <div class="card-title" data-bind="text: title" class="name"></div>
+          </div>
+        </div>
+        <div class="oj-flex">
+          <div class="oj-flex-item oj-sm-flex-initial" data-bind="if: $data.hasOwnProperty('description')">
+            <div class="card-sub-title" data-bind="text: description" ></div>
+          </div>
+        </div>
+        <div class="oj-flex">
+          <div class="oj-flex-item" data-bind="if: $data.hasOwnProperty('url')">
+            <a data-bind="css:'card-url',text: $parents[2].getDisplayUrl($data.url), attr: {href: $data.url}"  target="_blank" ></a>
+          </div>
+        </div>
+        <!-- ko if: $data.hasOwnProperty("actions") -->
+        <div class="actions card-actions">
+          <!-- ko foreach: actions -->
+          <div class="oj-flex oj-sm-justify-content-center" data-bind="css:($index() === ($parent.actions.length - 1)) ? 'action-last' : 'action'" >
+            <div class="flex-item " >
+              <div data-bind="template: { name: 'action-template', data: {clazz:'action-link',action:$data,parent:$parents[3]} }"></div>
+            </div>
+          </div>
+          <!-- /ko -->
+        </div>
+        <!-- /ko -->
+      </div>
+    </div>
+    <!-- /ko -->
+  </div>
+</script>
+
+<!-- Action Template -->
+<script type="text/html" id="action-template">
+  <!-- ko if: action.type != 'url' -->
+  <a id="globalLink" href="#last"
+     data-bind="css:clazz,text:action.label, click: function() { parent.onClientSelection(action); }"></a>
+  <!-- /ko -->
+  <!-- ko if: action.type === 'url' -->
+  <a data-bind="css:clazz,text: action.label, attr: {href: action.url}"  target="_blank" ></a>
+  <!-- /ko -->
+
+</script>
+
+
+<script type="text/html" id="attachment">
+  <div>
+    <!-- ko if: attachment.type == 'image' -->
+    <img style="max-width:100%;height:auto;" data-bind="attr: {src: attachment.url}"/>
+    <!-- /ko -->
+    <!-- ko if: attachment.type == 'video' -->
+    <video id="myVideo" width="330" controls="controls">
+      <source data-bind="attr: {src: attachment.url}" type="video/mp4" >
+      Your browser does not support HTML5 video.
+    </video>
+    <!-- /ko -->
+    <!-- ko if: attachment.type == 'audio' -->
+    <audio controls="controls" width="330">
+      <source data-bind="attr: {src: attachment.url}" type="audio/mpeg">
+      Your browser does not support HTML5 audio.
+    </audio>
+    <!-- /ko -->
+    <!-- ko if: attachment.type == 'file' -->
+    <a data-bind="text: attachment.url, attr: {href: attachment.url}"  target="_blank" ></a>
+    <!-- /ko -->
+  </div>
+</script>
+
+
+
+<div id="notSupportedDialogWrapper">
+  <div style="display:none" id="notSupportedDialog"
+       data-bind="ojComponent:{component: 'ojDialog', initialVisibility: 'hide',title:'Not Supported'}">
+    <div class="oj-dialog-body">
+      <span data-bind="text:notSupportedMessage"></span>
+    </div>
+    <div class="oj-dialog-footer">
+      <button id="closeDialog" data-bind="click: closeNotSupportedDialog ,ojComponent: {component: 'ojButton', label: 'OK'}"> </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Settings</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <button ion-item (click)="showPrompt()" >
+      Host <ion-note item-right>{{dataService.host}}</ion-note>
+    </button>
+    <button ion-item (click)="showPrompt()">
+      Port <ion-note item-right>{{dataService.port}}</ion-note>
+    </button>
+  </ion-list>
+</ion-content>
