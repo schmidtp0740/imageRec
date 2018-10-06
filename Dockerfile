@@ -1,3 +1,2 @@
-FROM oraclelinux:7.5
-ADD retail-app .
-
+FROM tensorflow/tensorflow:latest-gpu-py3
+ADD . .
