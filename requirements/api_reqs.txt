@@ -13,7 +13,7 @@ enum34==1.1.6
 Flask==0.12.2
 Flask-Cache==0.13.1
 Flask-SocketIO==2.9.3
-html5lib==0.9999999
+html5lib==0.999999999
 idna==2.6
 ipykernel==4.6.1
 ipython==6.2.1
